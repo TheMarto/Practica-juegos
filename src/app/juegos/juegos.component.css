@@ -1,0 +1,42 @@
+.search{
+    margin-top: 50px;
+    border-radius: 20px;
+}
+.form-control{
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    border: 2px solid #000;
+    background-color: rgba(0, 4, 255, 0.5);
+    color: white;
+}
+.form-control:hover{
+    background-color: rgba(255, 251, 0, 0.5);
+}
+
+.btn {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #ffcc00;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 15px;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    background-color: #0d00ff;
+    color: #ffcc00;
+  }
+
+
+.right{ 
+    border-left: 4px solid #535353;
+    height: 100vh;
+
+}
