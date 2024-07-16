@@ -1,15 +1,40 @@
-nav{
-  font-family: 'Arial', sans-serif;
-  color: white;
+.navbar-brand img {
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
 }
 
-html{
-  background-color: black;
-  font-size: 100%;
- }
+.custom-navbar {
+  height: 80px;
+}
 
- img{
-  width:50px;
-  height: 50px;
+.custom-navbar .navbar-brand {
+  padding: 0;
+  margin-left: 0;
+}
 
- }
+.navbar-brand{
+  font-family: 'Press Start 2P', cursive;
+  color: #ff00e1;
+  font-size: 2rem;
+  text-shadow: 2px 2px 0px #000, 4px 4px 0px #ff0000, 6px 6px 0px #0000ff;
+}
+
+.login {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #ffcc00;
+  color: #000;
+  border: 2px solid #000;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px #000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login:hover {
+  background-color: #0d00ff;
+  color: #ffcc00;
+}
+

@@ -1,0 +1,42 @@
+.container{
+    border-radius: 50px;
+    width: 900px;
+    height: 500px;
+    border: 5px solid rgba(255, 0, 0, 0.5); /* Red border with 50% transparency */
+    background-color: rgba(0, 0, 255, 0.3); /* Blue background with 30% transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    margin: 50px auto;
+}
+.button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #ffcc00;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #1900ff;
+    color: #ffcc00;
+  }
+  .credentials{
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgba(255, 242, 0, 0.5);
+  }
+  .credentials:hover{
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgba(255, 242, 0, 0.6);
+    box-shadow: red;
+}
