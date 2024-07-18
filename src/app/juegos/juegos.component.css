@@ -36,7 +36,11 @@
 
 
 .right{ 
+    margin-left: 16.67%; 
+    padding: 20px;
     border-left: 4px solid #535353;
-    height: 100vh;
-
+    height: 100%;
+}
+.friends{
+    margin-top: 60vh;
 }
