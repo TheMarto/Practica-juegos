@@ -8,11 +8,13 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './juegos/list/list.component';
+import { MyfriendsComponent } from './myfriends/myfriends.component';
 
 const appRoutes:Routes=[
 
   {path:'', component:JuegosComponent},
   {path:'login', component: LoginComponent},
+  {path:'myfriends', component: MyfriendsComponent},
   {path:'**', component: ErrorComponent},
   
 
@@ -23,7 +25,8 @@ const appRoutes:Routes=[
     AppComponent,
     JuegosComponent,
     LoginComponent,
-    ListComponent
+    ListComponent,
+    MyfriendsComponent
   ],
   imports: [
     BrowserModule,
