@@ -1,4 +1,7 @@
+import { LoginService } from './login.service';
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -6,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  constructor(private LoginService:LoginService){
+
+  }
+  login(form:NgForm){
+
+    const email=form.value.email;
+    const pwd= form.value.pwd;
+    this.LoginService.loginftn(email,pwd);
+  }
 
 }

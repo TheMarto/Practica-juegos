@@ -34,16 +34,18 @@
     background-color: #0d00ff;
     color: #ffcc00;
   }
-
-
-.right{
-    margin-left: 16.67%;
-    border-left: 4px solid #535353;
-    height: 100%;
-    margin-top: 0.5%;
-}
-.friends{
+  .friends{
     position: absolute;
     bottom: 20%;
     width: 100%;
 }
+
+
+/*Center and right*/
+.right{
+    margin-left: 16.67%;
+    border-left: 4px solid #535353;
+    height: 100%;
+    margin-top: 0%;
+}
+

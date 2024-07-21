@@ -4,21 +4,22 @@
 <div class="container">
     <div class="login">
 
-
+      <form #myForm="ngForm" (ngSubmit)="login(myForm)">
         <div>
 
-                <input class="credentials" type="text" placeholder="Gamer Name">
+                <input class="credentials" type="text" name="email" placeholder="Gamer email" ngModel>
 
             <br><br>
 
-                <input class="credentials" type="password" placeholder="Password">
+                <input class="credentials" type="password" name="pwd" placeholder="Password" ngModel>
 
-        </div>
+
 
             <br><br><br>
-            <button type="submit" class="button">START!!!</button>
+            <button type="submit" name="submit" class="button" ngModel>START!!!</button>
+          </div>
+          </form>
 
 
 
-    </div>
 </div>

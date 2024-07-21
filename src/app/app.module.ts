@@ -10,6 +10,12 @@ import { LoginComponent } from './login/login.component';
 import { ListComponent } from './juegos/list/list.component';
 import { MyfriendsComponent } from './myfriends/myfriends.component';
 import { ChatComponent } from './chat/chat.component';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClientModule, HttpClient, provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoginService } from './login/login.service';
+
+
 
 const appRoutes:Routes=[
 
@@ -17,6 +23,7 @@ const appRoutes:Routes=[
   {path:'login', component: LoginComponent},
   {path:'myfriends', component: MyfriendsComponent},
   {path:'chat', component: ChatComponent},
+  {path:'myfriends/:id', component: ChatComponent},
   {path:'**', component: ErrorComponent},
 
 
@@ -35,8 +42,10 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [Router],
+  providers: [Router, CookieService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
