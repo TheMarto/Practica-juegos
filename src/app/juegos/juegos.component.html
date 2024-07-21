@@ -2,39 +2,41 @@
     <div class="container-fluid">
       <div class="row">
 
-        
+
         <!-- Left  -->
-    <div class="col-md-2 search left position-fixed">
-        <div>
+    <nav class="col-md-2 left position-fixed">
+      <div>
         <input type="text" class="form-control" placeholder="Search...">
         <button class="btn mt-2">search</button>
-        
       </div>
 
       <div>
         <button class="btn mt-2">My Games</button>
       </div>
-      
+
       <div class="friends">
         <button class="btn mt-2" [routerLink]="'myfriends'">My Friends</button>
+        <button class="btn mt-2" [routerLink]="'chat'">My Chats
+          <span class="position-absolute top-45 start-100 translate-middle rounded-pill bg-secondary">+99</span>
+        </button>
       </div>
-    </div>
-  
+
+    </nav>
+
 
 
         <!-- Center and right -->
         <div class="col-md-10 right" >
-          
-          
-            
+
+
+
             <app-list></app-list>
-          
+
         </div>
       </div>
     </div>
-  
+
     <!-- Incluye Bootstrap JS y jQuery (opcional pero recomendado para algunos componentes) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
- 
