@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import { LoginService } from './login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,11 @@ import { LoginService } from './login/login.service';
 export class AppComponent {
 
   title = 'Play Store Game';
-  btnlogin="";
+  btnlogin='';
 
-  constructor(private LoginService:LoginService, private router:Router){}
+  constructor(private LoginService:LoginService, private router:Router, private cookies:CookieService){  }
 
-
-
-  ngOnInit(){
+  ngOnInit(): void{
     firebase.initializeApp({
 
       apiKey: "AIzaSyB2Bt5ry_DNNy-1mL4YdBKTzWmbl812nKM",
@@ -26,14 +25,11 @@ export class AppComponent {
 
 
     });
+    this.btnname();
+    console.log(this.LoginService.token);
 
-    
 
   }
-
-
-
-
   //method button
   btnloginftn() {
     if(this.LoginService.token!=""){
@@ -42,24 +38,18 @@ export class AppComponent {
     else{
       this.router.navigate(['login']);
     };
-
-    this.updateBottonName();
-    console.log(this.btnlogin);
-    console.log('token '+this.LoginService.token);
+    this.btnname();
 
   };
 
-
-     //button name (se llama arriba cuando se acciona)
-     updateBottonName(){
-     if(this.LoginService.token==""){
-      this.btnlogin="login"
-    }
-    else{
-      this.btnlogin="loginOut"
-    };
-     }
-
-
+   //button name
+   btnname(){
+   if(this.LoginService.token!=""){
+    this.btnlogin="loginOut";
+  }
+  else{
+    this.btnlogin="login";
+  };
+   }
 
 }
