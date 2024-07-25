@@ -14,6 +14,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule, HttpClient, provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
+import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+
 
 
 
@@ -46,7 +48,7 @@ const appRoutes:Routes=[
     FormsModule,
     
   ],
-  providers: [Router, CookieService, LoginService],
+  providers: [Router, CookieService, LoginService, GoogleAuthProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

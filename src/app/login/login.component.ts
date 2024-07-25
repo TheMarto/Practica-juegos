@@ -18,5 +18,9 @@ export class LoginComponent {
     const pwd= form.value.pwd;
     this.LoginService.loginftn(email,pwd);
   }
+  logingoogle(){
+    this.LoginService.loginWithGoogle();
+    
+  }
 
 }

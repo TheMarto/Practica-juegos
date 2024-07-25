@@ -26,7 +26,7 @@ export class AppComponent {
 
     });
     this.btnname();
-    console.log(this.LoginService.token);
+    //console.log(this.LoginService.token);
 
 
   }
@@ -34,11 +34,13 @@ export class AppComponent {
   btnloginftn() {
     if(this.LoginService.token!=""){
       this.LoginService.logout();
+      this.btnname();
     }
     else{
       this.router.navigate(['login']);
+      this.btnname();
     };
-    this.btnname();
+    
 
   };
 
