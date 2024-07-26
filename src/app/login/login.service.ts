@@ -82,5 +82,62 @@ export class LoginService {
     ).catch(error => {
       console.error('Error en la autenticación con Google: ', error);
     });
+  };
+
+
+  //facebook auth code:
+  loginWithFacebook() {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(
+      result => {
+        firebase.auth().currentUser?.getIdToken().then(
+          token => {
+            this.token = token;
+            this.cookies.set('token3', this.token);
+            this.router.navigate(['']);
+          }
+        );
+      }
+    ).catch(error => {
+      console.error('Error en la autenticación con Facebook: ', error);
+    });
+  };
+
+
+  //X auth code:
+  loginWithX() {
+    const provider = new firebase.auth.TwitterAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(
+      result => {
+        firebase.auth().currentUser?.getIdToken().then(
+          token => {
+            this.token = token;
+            this.cookies.set('token3', this.token);
+            this.router.navigate(['']);
+          }
+        );
+      }
+    ).catch(error => {
+      console.error('Error en la autenticación con twiter-X: ', error);
+    });
+  };
+
+
+  //Apple auth code:
+  loginWithApple() {
+    const provider = new firebase.auth.OAuthProvider('apple.com');
+    firebase.auth().signInWithPopup(provider).then(
+      result => {
+        firebase.auth().currentUser?.getIdToken().then(
+          token => {
+            this.token = token;
+            this.cookies.set('token3', this.token);
+            this.router.navigate(['']);
+          }
+        );
+      }
+    ).catch(error => {
+      console.error('Error en la autenticación con Apple: ', error);
+    });
   }
 }

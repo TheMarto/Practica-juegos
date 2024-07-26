@@ -2,26 +2,32 @@
 
 
 <div class="container">
-    <div class="login">
+  
+  <div class="cont">
+  <div class="col-md-12">
+    <form #myForm="ngForm" (ngSubmit)="login(myForm)">
+      <input class="credentials" type="text" name="email" placeholder="Gamer email" ngModel>
+        <br>
+      <input class="credentials" type="password" name="pwd" placeholder="Password" ngModel>
+        <br>
+      <button type="submit" name="submit" class="btn-email-sing">START!!!</button>
+    </form>
+  </div> 
+  <!---->
+  
+  
+  <div class="col-md-12 gfxp">
+    <div class="contlogo">
+      <a type="button" class="col-md-3 btn-google-sing" (click)="logingoogle()"><img class="sing" src="google-logo-48.svg"  alt="google"></a>
+        
+      <a type="button" class="col-md-3 btn-facebook-sing" (click)="loginface()"><img class="sing" src="facebook-logo-48.svg" alt="facebook"></a>
+      
+      <a type="button" class="col-md-3 btn-twiter-sing" (click)="loginx()"><img class="sing" src="twitterx-logo-48.svg"  alt="x"></a>
+      
+      <a type="button" class="col-md-3 btn-apple-sing" (click)="loginapple()"><img class="sing" src="apple-logo-52.svg"  alt="apple"></a>
+    </div>
+  </div>
 
-      <form #myForm="ngForm" (ngSubmit)="login(myForm)">
-        <div>
-
-                <input class="credentials" type="text" name="email" placeholder="Gamer email" ngModel>
-
-            <br><br>
-
-                <input class="credentials" type="password" name="pwd" placeholder="Password" ngModel>
-
-
-
-            <br><br><br>
-            <button type="submit" name="submit" class="button">START!!!</button>
-            <br><br><br>
-            <button type="button" class="btn-google-sing" (click)="logingoogle()">Sing in with Google</button>
-          </div>
-          </form>
-
-
+</div>
 
 </div>

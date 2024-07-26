@@ -22,5 +22,17 @@ export class LoginComponent {
     this.LoginService.loginWithGoogle();
     
   }
+  loginface(){
+    this.LoginService.loginWithFacebook()
+    
+  }
+  loginx(){
+    this.LoginService.loginWithX()
+    
+  }
+  loginapple(){
+    this.LoginService.loginWithApple()
+    
+  }
 
 }
