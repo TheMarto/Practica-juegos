@@ -40,7 +40,7 @@ export class AppComponent {
       this.router.navigate(['login']);
       this.btnname();
     };
-    
+
 
   };
 
@@ -53,5 +53,13 @@ export class AppComponent {
     this.btnlogin="login";
   };
    }
+
+
+   //funtion for login button
+  /* loginnow(){
+
+    return this.LoginService.getIdToeken()
+
+  }*/
 
 }
