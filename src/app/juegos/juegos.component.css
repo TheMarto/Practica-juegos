@@ -28,11 +28,14 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 15px;
     width: 100%;
+    transition: 1s;
+    
   }
 
   .btn:hover {
     background-color: #0d00ff;
     color: #ffcc00;
+   
   }
   .friends{
     position: absolute;
@@ -48,4 +51,5 @@
     height: 100%;
     margin-top: 0%;
 }
+
 

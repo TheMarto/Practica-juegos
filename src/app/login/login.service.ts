@@ -30,7 +30,7 @@ export class LoginService {
                               //singIn.. a como se autentifica y then para retornar cuando la promesa es resuelta
         response=>{
           this.user = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
-          //console.log("el uid del usuario es : " + this.user)
+          console.log("el uid del usuario es : " + this.user)
           firebase.auth().currentUser?.getIdToken().then( //aqui de currenUser sacamos el token con getIdToken cuando retorna respuesta
             token=>{
 
