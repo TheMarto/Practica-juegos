@@ -21,11 +21,8 @@
         <!-- LOGIN -->
         <div class="d-flex justify-content-end align-items-center">
           <div class="navbar-nav">
-            <button (click)="btnloginftn()" class="nav-link login" >{{btnlogin}}</button>
-            <!-- IMPORTANTE: CREAR ngif like:
-                     <a class="nav-item nav-link active" style="margin-left: 1200px;" routerLink="login" *ngIf="!loginnow()" >login</a>
-                      <a class="nav-item nav-link active" style="margin-left: 1200px;" (click)="clicklogout()" *ngIf="loginnow()" >logout</a>
-            -->
+            <button (click)="btnloginftn()" class="nav-link login" *ngIf="!loginnow()">login</button>
+            <button (click)="btnloginftn()" class="nav-link login" *ngIf="loginnow()">logout</button>
           </div>
         </div>
       </div>

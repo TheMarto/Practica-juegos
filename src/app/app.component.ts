@@ -56,10 +56,10 @@ export class AppComponent {
 
 
    //funtion for login button
-  /* loginnow(){
+  loginnow(){
 
     return this.LoginService.getIdToeken()
-
-  }*/
+  
+  }
 
 }
