@@ -17,7 +17,7 @@ export class NewandforgotService {
       response=>{
         response.user?.sendEmailVerification()// verify email
         //console.log('contraseña creada :'+response.user?.uid);
-        this.route.navigate(['/login/verify']);
+        this.route.navigate(['login']);
       }
     )
   }
