@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    color: #ff00e1;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0px #000, 4px 4px 0px #ff0000, 6px 6px 0px #0000ff;
+}
+div{
+    border-radius: 50px;
+    width: 900px;
+    height: 500px;
+    border: 5px solid rgba(255, 0, 0, 0.5); /* Red border with 50% transparency */
+    background-color: rgba(0, 0, 255, 0.3); /* Blue background with 30% transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    margin: 50px auto;
+}
