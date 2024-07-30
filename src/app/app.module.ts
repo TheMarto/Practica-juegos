@@ -14,7 +14,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule, HttpClient, provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
-import { GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { NewaccountComponent } from './login/newaccount/newaccount.component';
+import { ForgotComponent } from './login/forgot/forgot.component';
+import { ChangepwdComponent } from './login/forgot/changepwd/changepwd.component';
+import { NotificationComponent } from './login/forgot/notification/notification.component';
 
 
 
@@ -25,7 +29,12 @@ const appRoutes:Routes=[
   {path:'login', component: LoginComponent},
   {path:'myfriends', component: MyfriendsComponent},
   {path:'chat', component: ChatComponent},
+  {path:'login/newaccount', component: NewaccountComponent},
+  {path:'login/forgot', component: ForgotComponent},
+  {path:'login/verify', component: LoginComponent},
   {path:'myfriends/:id', component: ChatComponent},
+  {path: 'notification', component: NotificationComponent},
+  {path: 'login/changepwd', component: ChangepwdComponent},
   {path:'**', component: ErrorComponent},
 
 
@@ -38,7 +47,11 @@ const appRoutes:Routes=[
     LoginComponent,
     ListComponent,
     MyfriendsComponent,
-    ChatComponent
+    ChatComponent,
+    NewaccountComponent,
+    ForgotComponent,
+    ChangepwdComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +61,7 @@ const appRoutes:Routes=[
     FormsModule,
     
   ],
-  providers: [Router, CookieService, LoginService, GoogleAuthProvider],
+  providers: [Router, CookieService, LoginService, GoogleAuthProvider, FacebookAuthProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

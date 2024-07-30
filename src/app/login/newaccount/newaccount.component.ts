@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NewandforgotService } from '../newandforgot.service';
 import { NgFor } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newaccount',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrl: './newaccount.component.css'
 })
 export class NewaccountComponent {
-  constructor(private NewandforgotService: NewandforgotService){}
+  constructor(private NewandforgotService: NewandforgotService, private route: Router){}
 
   newaccountform(nwform:NgForm){
     const email=nwform.value.email;

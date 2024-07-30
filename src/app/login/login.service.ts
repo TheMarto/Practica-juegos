@@ -22,15 +22,15 @@ export class LoginService {
 
      //variable que usaremos de token
      token:string=this.cookies.get('token3'); // si no le doy valor a token da error al no inicializar por ende el igual
-      user:any="";
+      useruid:any="";
 
      //función para obetener el token de firebase
     loginftn(email:string, pwd:string){
       firebase.auth().signInWithEmailAndPassword(email,pwd).then( //funcion que auth hace referencia a la autentificacion,
                               //singIn.. a como se autentifica y then para retornar cuando la promesa es resuelta
         response=>{
-          this.user = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
-          console.log("el uid del usuario es : " + this.user)
+          this.useruid = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
+          //console.log("el uid del usuario es : " + this.user)
           firebase.auth().currentUser?.getIdToken().then( //aqui de currenUser sacamos el token con getIdToken cuando retorna respuesta
             token=>{
 
@@ -60,6 +60,7 @@ export class LoginService {
 
       this.token='';
       this.cookies.delete('token3');
+      this.useruid= "";
       this.router.navigate(['/']);
       //console.log('funtion logout btn');
       
@@ -80,7 +81,7 @@ export class LoginService {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
       result => {
-        this.user = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
+        this.useruid = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
         //console.log("el uid del usuario es : " + this.user)
         firebase.auth().currentUser?.getIdToken().then(
           token => {
