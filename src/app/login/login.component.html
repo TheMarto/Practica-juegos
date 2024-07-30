@@ -5,14 +5,22 @@
   
   <div class="cont">
   <div class="col-md-12">
-    <form #myForm="ngForm" (ngSubmit)="login(myForm)">
-      <input class="credentials" type="text" name="email" placeholder="Gamer email" ngModel>
-        <br>
-      <input class="credentials" type="password" name="pwd" placeholder="Password" ngModel>
-        <br>
-      <button type="submit" name="submit" class="btn-email-sing">START!!!</button>
-    </form>
+    <div class="row">
+      <div class="col-md-6">
+        <form #myForm="ngForm" (ngSubmit)="login(myForm)">
+          <input class="credentials" type="text" name="email" placeholder="Gamer email" ngModel>
+          <input class="credentials" type="password" name="pwd" placeholder="Password" ngModel>
+          <button type="submit" name="submit" class="btn-email-sing">START!!!</button>
+        </form>
+      </div>
+    <div class="col-md-6">
+      <button class="btn-email-sing" [routerLink]="'forgot'">I forgot my password</button>
+      <br>
+      <button class="btn-email-sing" [routerLink]="'newaccount'">I don't have an account</button>
+    </div>
+    
   </div> 
+</div>
   <!---->
   
   
