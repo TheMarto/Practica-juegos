@@ -20,6 +20,8 @@ import { ForgotComponent } from './login/forgot/forgot.component';
 import { ChangepwdComponent } from './login/forgot/changepwd/changepwd.component';
 import { NotificationComponent } from './login/forgot/notification/notification.component';
 import { CommunicationsComponent } from './communications/communications.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { authGuard } from './guards/auth.guard';
 
 
 
@@ -28,13 +30,14 @@ const appRoutes:Routes=[
 
   {path:'', component:JuegosComponent},
   {path:'login', component: LoginComponent},
-  {path:'myfriends', component: MyfriendsComponent},
-  {path:'communications', component: CommunicationsComponent},
-  {path:'chat/:id', component: ChatComponent},
+  {path:'myfriends', component: MyfriendsComponent, canActivate: [authGuard]},
+  {path:'communications', component: CommunicationsComponent, canActivate: [authGuard]},
+  {path:'chat/:id', component: ChatComponent, canActivate: [authGuard]},
   {path:'login/newaccount', component: NewaccountComponent},
   {path:'login/forgot', component: ForgotComponent},
   {path:'login/verify', component: LoginComponent},
-  {path:'myfriends/:id', component: MyfriendsComponent},
+  {path:'myfriends/:id', component: MyfriendsComponent, canActivate: [authGuard]},
+  {path:'myprofile/:id', component: MyprofileComponent, canActivate: [authGuard]},
   {path: 'notification', component: NotificationComponent},
   {path: 'login/changepwd', component: ChangepwdComponent},
   {path:'**', component: ErrorComponent},
@@ -54,7 +57,8 @@ const appRoutes:Routes=[
     ChangepwdComponent,
     NotificationComponent,
     CommunicationsComponent,
-    ChatComponent
+    ChatComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
+    
     
   ],
   providers: [Router, CookieService, LoginService, GoogleAuthProvider, FacebookAuthProvider, HttpClient],
