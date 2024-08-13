@@ -7,7 +7,7 @@
     text-shadow: 2px 2px 0px #000, 4px 4px 0px #ff0000, 6px 6px 0px #0000ff;
     
     cursor:pointer;
-    width: 300px; height: auto;
+    width: 300px; height: 300px;
 }
 img{
     text-align: center;

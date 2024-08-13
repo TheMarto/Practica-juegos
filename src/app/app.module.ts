@@ -9,7 +9,7 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './juegos/list/list.component';
 import { MyfriendsComponent } from './myfriends/myfriends.component';
-import { ChatComponent } from './chat/chat.component';
+import { ChatComponent } from './communications/chat/chat.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule, HttpClient, provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ import { NewaccountComponent } from './login/newaccount/newaccount.component';
 import { ForgotComponent } from './login/forgot/forgot.component';
 import { ChangepwdComponent } from './login/forgot/changepwd/changepwd.component';
 import { NotificationComponent } from './login/forgot/notification/notification.component';
+import { CommunicationsComponent } from './communications/communications.component';
 
 
 
@@ -28,11 +29,12 @@ const appRoutes:Routes=[
   {path:'', component:JuegosComponent},
   {path:'login', component: LoginComponent},
   {path:'myfriends', component: MyfriendsComponent},
-  {path:'chat', component: ChatComponent},
+  {path:'communications', component: CommunicationsComponent},
+  {path:'chat/:id', component: ChatComponent},
   {path:'login/newaccount', component: NewaccountComponent},
   {path:'login/forgot', component: ForgotComponent},
   {path:'login/verify', component: LoginComponent},
-  {path:'myfriends/:id', component: ChatComponent},
+  {path:'myfriends/:id', component: MyfriendsComponent},
   {path: 'notification', component: NotificationComponent},
   {path: 'login/changepwd', component: ChangepwdComponent},
   {path:'**', component: ErrorComponent},
@@ -47,11 +49,12 @@ const appRoutes:Routes=[
     LoginComponent,
     ListComponent,
     MyfriendsComponent,
-    ChatComponent,
     NewaccountComponent,
     ForgotComponent,
     ChangepwdComponent,
-    NotificationComponent
+    NotificationComponent,
+    CommunicationsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ const appRoutes:Routes=[
     FormsModule,
     
   ],
-  providers: [Router, CookieService, LoginService, GoogleAuthProvider, FacebookAuthProvider],
+  providers: [Router, CookieService, LoginService, GoogleAuthProvider, FacebookAuthProvider, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,7 +17,7 @@
 
       <div class="friends" *ngIf="loginact()">
         <button class="btn mt-2" [routerLink]="'myfriends'">My Friends</button>
-        <button class="btn mt-2" [routerLink]="'chat'">My Chats
+        <button class="btn mt-2" [routerLink]="['chat',useriudurl]" >My Chats
           <span class="position-absolute top-45 start-100 translate-middle rounded-pill bg-secondary">+99</span>
         </button>
       </div>

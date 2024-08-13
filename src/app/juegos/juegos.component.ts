@@ -16,6 +16,7 @@ constructor(private router:Router, private cookies:CookieService, private LoginS
 loginact(){
   return this.LoginService.getIdToeken()
 }
+useriudurl:string=this.LoginService.useruid;
 
 
 }

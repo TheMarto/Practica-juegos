@@ -17,12 +17,17 @@ import { getAuth } from "firebase/auth";
 })
 export class LoginService {
   
-  constructor(private router:Router, private cookies: CookieService) {}
+  constructor(private router:Router, private cookies: CookieService) {
+    // Recupera el useruid y token de las coockies para usarlas luego :D
+    this.useruid = this.cookies.get('useruid');
+    this.token=this.cookies.get('token3');
+
+  }
 
 
      //variable que usaremos de token
-     token:string=this.cookies.get('token3'); // si no le doy valor a token da error al no inicializar por ende el igual
-      useruid:any="";
+     token:any;
+      useruid:any;
 
      //función para obetener el token de firebase
     loginftn(email:string, pwd:string){
@@ -30,7 +35,8 @@ export class LoginService {
                               //singIn.. a como se autentifica y then para retornar cuando la promesa es resuelta
         response=>{
           this.useruid = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
-          //console.log("el uid del usuario es : " + this.user)
+          this.cookies.set('useruid', this.useruid);
+          //console.log("el uid del usuario es : " + this.useruid)
           firebase.auth().currentUser?.getIdToken().then( //aqui de currenUser sacamos el token con getIdToken cuando retorna respuesta
             token=>{
 
@@ -60,7 +66,8 @@ export class LoginService {
 
       this.token='';
       this.cookies.delete('token3');
-      this.useruid= "";
+      this.useruid= '';
+      this.cookies.delete('useruid');
       this.router.navigate(['/']);
       //console.log('funtion logout btn');
       
@@ -72,9 +79,7 @@ export class LoginService {
 
   getIdToeken(){
     return this.cookies.get('token3');
-
   }
-
 
   //google auth code:
   loginWithGoogle() {
@@ -82,7 +87,8 @@ export class LoginService {
     firebase.auth().signInWithPopup(provider).then(
       result => {
         this.useruid = firebase.auth().currentUser?.uid; // obtenemos uid de usuario
-        //console.log("el uid del usuario es : " + this.user)
+        this.cookies.set('useruid', this.useruid);
+        //console.log("el uid del usuario es : " + this.useruid)
         firebase.auth().currentUser?.getIdToken().then(
           token => {
             this.token = token;
@@ -102,6 +108,8 @@ export class LoginService {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
       result => {
+        this.useruid = firebase.auth().currentUser?.uid;
+        this.cookies.set('useruid', this.useruid);
         firebase.auth().currentUser?.getIdToken().then(
           token => {
             this.token = token;
@@ -121,6 +129,8 @@ export class LoginService {
     const provider = new firebase.auth.TwitterAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
       result => {
+        this.useruid = firebase.auth().currentUser?.uid;
+        this.cookies.set('useruid', this.useruid);
         firebase.auth().currentUser?.getIdToken().then(
           token => {
             this.token = token;
@@ -140,6 +150,8 @@ export class LoginService {
     const provider = new firebase.auth.OAuthProvider('apple.com');
     firebase.auth().signInWithPopup(provider).then(
       result => {
+        this.useruid = firebase.auth().currentUser?.uid;
+        this.cookies.set('useruid', this.useruid);
         firebase.auth().currentUser?.getIdToken().then(
           token => {
             this.token = token;

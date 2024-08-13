@@ -23,12 +23,11 @@ export class AppComponent {
 
       authDomain: "juegos-practica.firebaseapp.com",
 
-
     });
     this.btnname();
-    //console.log(this.LoginService.token);
+    //console.log('token es '+this.LoginService.token);
 
-
+    //console.log('uid de cliente: '+this.LoginService.useruid)
   }
   //method button
   btnloginftn() {
