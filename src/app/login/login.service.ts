@@ -81,6 +81,8 @@ export class LoginService {
     return this.cookies.get('token3');
   }
 
+
+  //AGREGAR IF ELSE PARA CREAR SI NO EXISTE EL USUARIO!!!
   //google auth code:
   loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();

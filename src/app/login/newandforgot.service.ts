@@ -11,7 +11,7 @@ export class NewandforgotService {
 
   constructor(private route:Router, private cookie: CookieService) { }
 
-  //new account - send email confirmation
+  //new account - send email confirmation >>> GREGAR AQUÍ LO DE CREATE USER!!!
   newAccont(email:string, pwd:string){
     firebase.auth().createUserWithEmailAndPassword(email, pwd).then(
       response=>{
