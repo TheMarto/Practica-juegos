@@ -8,6 +8,7 @@ import 'firebase/compat/auth' //importo authentificacion
 import { CookieService } from 'ngx-cookie-service';
 import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 import { getAuth } from "firebase/auth";
+import { BDConnectionService } from '../bdconnection.service';
 
 
 
@@ -17,7 +18,7 @@ import { getAuth } from "firebase/auth";
 })
 export class LoginService {
   
-  constructor(private router:Router, private cookies: CookieService) {
+  constructor(private router:Router, private cookies: CookieService, private bdconnection:BDConnectionService) {
     // Recupera el useruid y token de las coockies para usarlas luego :D
     this.useruid = this.cookies.get('useruid');
     this.token=this.cookies.get('token3');
@@ -42,7 +43,7 @@ export class LoginService {
 
               this.token=token; // copiamos en la variable
               this.cookies.set('token3', this.token); // aqui guardamos en la cookie con el nombre toker3 y la variable token
-              //console.log('el token es: '+ token);
+              console.log('el token es: '+ token);
               //console.log(' coockie es: '+ this.cookies.get('token3'));
               this.router.navigate(['']);
             }
@@ -83,6 +84,8 @@ export class LoginService {
 
 
   //AGREGAR IF ELSE PARA CREAR SI NO EXISTE EL USUARIO!!!
+  useruid2:any;
+  email2:any;
   //google auth code:
   loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -95,6 +98,14 @@ export class LoginService {
           token => {
             this.token = token;
             this.cookies.set('token3', this.token);
+            this.useruid2 = firebase.auth().currentUser?.uid;
+            this.email2 = firebase.auth().currentUser?.email;
+            console.log(this.email2);
+        const dataservice={
+          "email": this.email2,
+          "nombre": "",
+        };
+        this.bdconnection.newuser(this.useruid, dataservice);
             this.router.navigate(['']);
           }
         );

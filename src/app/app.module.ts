@@ -58,7 +58,7 @@ const appRoutes:Routes=[
     NotificationComponent,
     CommunicationsComponent,
     ChatComponent,
-    MyprofileComponent
+    MyprofileComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +66,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
+    HttpClientModule,
     
     
   ],
