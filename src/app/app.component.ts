@@ -20,7 +20,7 @@ export class AppComponent {
   ngOnInit(): void{
     firebase.initializeApp({
 
-   apiKey: "AIzaSyB2Bt5ry_DNNy-1mL4YdBKTzWmbl812nKM",
+  apiKey: "AIzaSyB2Bt5ry_DNNy-1mL4YdBKTzWmbl812nKM",
 
   authDomain: "juegos-practica.firebaseapp.com",
 
@@ -69,7 +69,7 @@ export class AppComponent {
   loginnow(){
 
     return this.LoginService.getIdToeken()
-  
+
   }
 
 }
