@@ -40,7 +40,6 @@ export class LoginService {
           //console.log("el uid del usuario es : " + this.useruid)
           firebase.auth().currentUser?.getIdToken().then( //aqui de currenUser sacamos el token con getIdToken cuando retorna respuesta
             token=>{
-
               this.token=token; // copiamos en la variable
               this.cookies.set('token3', this.token); // aqui guardamos en la cookie con el nombre toker3 y la variable token
               console.log('el token es: '+ token);
@@ -83,9 +82,11 @@ export class LoginService {
   }
 
 
-  //AGREGAR IF ELSE PARA CREAR SI NO EXISTE EL USUARIO!!!
+
   useruid2:any;
   email2:any;
+  displayName:any;
+  
   //google auth code:
   loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -98,12 +99,13 @@ export class LoginService {
           token => {
             this.token = token;
             this.cookies.set('token3', this.token);
-            this.useruid2 = firebase.auth().currentUser?.uid;
-            this.email2 = firebase.auth().currentUser?.email;
-            console.log(this.email2);
+            this.useruid2 = firebase.auth().currentUser?.uid; //obtenemos uid de firebase y lo ponemos en variable
+            this.email2 = firebase.auth().currentUser?.email; //obtenemos correo y copiamos en variable
+            this.displayName = firebase.auth().currentUser?.displayName; //obtenemos nombre y copiamos en variable
+            //console.log(this.displayName);
         const dataservice={
           "email": this.email2,
-          "nombre": "",
+          "nombre": this.displayName,
         };
         this.bdconnection.newuser(this.useruid, dataservice);
             this.router.navigate(['']);
@@ -116,6 +118,8 @@ export class LoginService {
   };
 
 
+
+  //no están en funcionamientos los de aquí abajo
   //facebook auth code:
   loginWithFacebook() {
     const provider = new firebase.auth.FacebookAuthProvider();
