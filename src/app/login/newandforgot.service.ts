@@ -14,18 +14,19 @@ export class NewandforgotService {
 
   //uid de usuario creado
   useruid:any;
-  
+  NameUser:any;
   
   //new account - send email confirmation >>> GREGAR AQUÍ LO DE CREATE USER!!!
-  newAccont(email:string, pwd:string){
+  newAccont(email:string, pwd:string, Name:string){
     firebase.auth().createUserWithEmailAndPassword(email, pwd).then(
       response=>{
         response.user?.sendEmailVerification()// verify email
         this.useruid = firebase.auth().currentUser?.uid;
+        this.NameUser = Name;
         //console.log('nandfor-- user uid es '+this.useruid);
         const dataservice={
           "email": email,
-          "nombre": "",
+          "nombre": this.NameUser,
         };
         this.bdconnection.newuser(this.useruid, dataservice);
         //console.log('nandfor-- contraseña creada :'+response.user?.email);

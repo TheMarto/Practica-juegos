@@ -10,13 +10,30 @@ import { Router } from '@angular/router';
   styleUrl: './newaccount.component.css'
 })
 export class NewaccountComponent {
+show = "false";
   constructor(private NewandforgotService: NewandforgotService, private route: Router){}
 
+  errormsn:string="";
+
   newaccountform(nwform:NgForm){
+    const pwd = nwform.value.pwd;
+    const pwd2 = nwform.value.pwd2;
+  
+    if(pwd==pwd2){
     const email=nwform.value.email;
     const pwd=nwform.value.pwd;
-    this.NewandforgotService.newAccont(email,pwd);
-    //console.log(email+pwd)
+    const Name = nwform.value.Name;
+    this.NewandforgotService.newAccont(email,pwd, Name);
+    //return console.log("creado usuario: "+Name)
+    }
+    else{
+      this.errormsn="true";
+      setTimeout(() => {
+        this.errormsn="";
+      }, 3000);
+      //return errormsn;
+
+    }
   }
 
 }
